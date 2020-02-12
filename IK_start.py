@@ -109,11 +109,7 @@ def main():
 
 
 
-    
-
-    #print(theta_1)
-    #print(theta_2)
-    #print(theta_3)
+    #Uncomment if you want to display the angle in degree form
 
     #print(theta_1 * 180/(np.pi))
     #print(theta_2 * 180/(np.pi))
