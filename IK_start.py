@@ -9,13 +9,17 @@ from numpy import asarray
 
 def main():
 
-    y0_3 = 2
-    x0_3 = 2
-    z0_3 = 0
+
+    #link lengths 
+    #y0_3 = 2
+    #x0_3 = 2
+    #z0_3 = 0
     a_1 = 6
     a_2 = 6
     a_3 = 6
 
+    #set of x, y and z values that correspond to the shape of a circle 
+    #the circle is gonna be on the x,y plane 
     x = [2,
     1.90211303259031,
     1.61803398874990,
@@ -60,10 +64,13 @@ def main():
     -4.89858719658941e-16]
     z = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
+    #initializing a array of theta values 
     theta_1a = [0 for i in range(21)]
     theta_2a = [0 for i in range(21)]
     theta_3a = [0 for i in range(21)]
 
+    #for loop to calculate the theta values utilizing the inverse kinematics equation derived from the
+    # orientation of the 3DOF robot arm 
     for i in range(len(x)):
         theta_1a[i] = np.arctan(y[i]/x[i])
         #theta_1a[i]*=(180/(np.pi))
@@ -86,6 +93,7 @@ def main():
         theta_3a[i] = (np.pi * 2) - phi_3
         #theta_3a[i]*=(180/(np.pi))
 
+
     theta_3a = np.array(theta_3a)
     theta_1a = np.array(theta_1a)
     theta_2a = np.array(theta_2a)
@@ -93,6 +101,8 @@ def main():
     print(theta_1a)
     print(theta_2a)
     print(theta_3a)
+
+    #saves the angle values to a csv formatted file
     np.savetxt('theta_1_values.csv', theta_1a, delimiter =',')
     np.savetxt('theta_2_values.csv', theta_2a, delimiter = ',')
     np.savetxt('theta_3_values.csv', theta_3a, delimiter = ',')
